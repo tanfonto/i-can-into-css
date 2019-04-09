@@ -6,10 +6,6 @@
   --width: 300px;
 }
 
-section {
-  display: inline-block;
-}
-
 div.frame {
   display: flex;
   position: absolute;
@@ -21,26 +17,26 @@ div.frame {
   width: var(--width);
 }
 
-div.frame>span.ear {
+div.frame > span.ear {
   flex-grow: 1;
   height: 20%;
   background-color: var(--skin-color);
   z-index: 1;
 }
 
-.left-ear {
+.ear.left {
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
   transform: translateX(0.5em);
 }
 
-.right-ear {
+.ear.right {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
   transform: translateX(-0.5em);
 }
 
-div.frame>div.face {
+div.frame > div.face {
   display: grid;
   flex-grow: 16;
   height: 95%;
@@ -80,19 +76,13 @@ div.eyebrows {
   justify-content: space-around;
 }
 
-div.eyebrows>span.eyebrow {
+div.eyebrows > span.eyebrow {
   transform: translate(0, 0.3em);
   width: 30%;
   border-top-style: solid;
   border-top-width: 0.7em;
   border-top-color: var(--hair-color);
   border-radius: 50%/100px 7em 0 0;
-}
-
-div.nose {
-  grid-area: nose;
-  display: flex;
-  justify-content: center;
 }
 
 div.nose-container {
@@ -104,22 +94,28 @@ div.nose-container {
   transform: translate(0, -2em);
 }
 
+div.nose {
+  grid-area: nose;
+  display: flex;
+  justify-content: center;
+}
+
+div.nose-container > span.nose {
+  width: 1.5em;
+  height: 7em;
+}
+
+div.nose-container > span.hole {
+  width: 3%;
+  height: 1em;
+}
+
 .border-left {
   border-left: var(--border-color) solid 0.3em;
 }
 
 .border-right {
   border-right: var(--border-color) solid 0.3em;
-}
-
-div.nose-container>span.nose {
-  width: 1.5em;
-  height: 7em;
-}
-
-div.nose-container>span.hole {
-  width: 3%;
-  height: 1em;
 }
 
 div.mouth {
@@ -133,7 +129,7 @@ div.mouth {
   margin-top: 5%;
 }
 
-div.mouth>.lips {
+div.mouth > .lips {
   position: absolute;
   box-sizing: border-box;
   width: 40%;
@@ -146,7 +142,7 @@ div.mouth>.lips {
   animation: talk 0.3s infinite;
 }
 
-div.eyes>span.eye {
+div.eyes > span.eye {
   animation: blink 2s infinite;
   border-top: solid var(--border-color) 1em;
   border-radius: 100%;
@@ -159,7 +155,7 @@ div.eyes>span.eye {
   align-items: center;
 }
 
-span.eye>span.eyeball {
+span.eye > span.eyeball {
   animation: toggle 2s infinite;
   border-radius: 100%;
   width: 30%;
