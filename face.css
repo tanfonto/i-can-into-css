@@ -1,0 +1,200 @@
+:root {
+  --skin-color: #ffb6c166;
+  --hair-color: #674343;
+  --border-color: #ffc0cb80;
+  --height: 400px;
+  --width: 300px;
+}
+
+section {
+  display: inline-block;
+}
+
+div.frame {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  height: var(--height);
+  width: var(--width);
+}
+
+div.frame>span.ear {
+  flex-grow: 1;
+  height: 20%;
+  background-color: var(--skin-color);
+  z-index: 1;
+}
+
+.left-ear {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  transform: translateX(0.5em);
+}
+
+.right-ear {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transform: translateX(-0.5em);
+}
+
+div.frame>div.face {
+  display: grid;
+  flex-grow: 16;
+  height: 95%;
+  overflow: hidden;
+  background-color: var(--skin-color);
+  border-radius: 45%;
+  grid-template-areas:
+    'forehead forehead'
+    'eyebrows eyebrows'
+    'eyes eyes'
+    'nose nose'
+    'mouth mouth';
+  grid-template-rows: 25% 5% 20% 20% 30% 1fr;
+}
+
+div.forehead {
+  grid-area: forehead;
+  transform: rotate(5deg);
+  background-color: var(--hair-color);
+  height: 65%;
+  border-bottom-left-radius: 3em;
+  border-bottom-right-radius: 4em;
+}
+
+div.eyes {
+  grid-area: eyes;
+  display: flex;
+  height: 100%;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div.eyebrows {
+  grid-area: eyebrows;
+  display: flex;
+  justify-content: space-around;
+}
+
+div.eyebrows>span.eyebrow {
+  transform: translate(0, 0.3em);
+  width: 30%;
+  border-top-style: solid;
+  border-top-width: 0.7em;
+  border-top-color: var(--hair-color);
+  border-radius: 50%/100px 7em 0 0;
+}
+
+div.nose {
+  grid-area: nose;
+  display: flex;
+  justify-content: center;
+}
+
+div.nose-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  width: 100%;
+  transform: translate(0, -2em);
+}
+
+.border-left {
+  border-left: var(--border-color) solid 0.3em;
+}
+
+.border-right {
+  border-right: var(--border-color) solid 0.3em;
+}
+
+div.nose-container>span.nose {
+  width: 1.5em;
+  height: 7em;
+}
+
+div.nose-container>span.hole {
+  width: 3%;
+  height: 1em;
+}
+
+div.mouth {
+  grid-area: mouth;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a9959547;
+  border-top-right-radius: 30%;
+  border-top-left-radius: 30%;
+  margin-top: 5%;
+}
+
+div.mouth>.lips {
+  position: absolute;
+  box-sizing: border-box;
+  width: 40%;
+  border-radius: 30%;
+  background-color: whitesmoke;
+  border-top-width: 1em;
+  border-bottom-width: 1em;
+  border-color: var(--border-color);
+  border-style: solid;
+  animation: talk 0.3s infinite;
+}
+
+div.eyes>span.eye {
+  animation: blink 2s infinite;
+  border-top: solid var(--border-color) 1em;
+  border-radius: 100%;
+  background-color: whitesmoke;
+  box-shadow: 0 0 0 0;
+  width: 30%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.eye>span.eyeball {
+  animation: toggle 2s infinite;
+  border-radius: 100%;
+  width: 30%;
+  height: 60%;
+  box-sizing: border-box;
+  border: 0.4em solid black;
+}
+
+@keyframes blink {
+  0% {
+    background-color: var(--border-color);
+  }
+
+  100% {
+    background-color: whitesmoke;
+  }
+}
+
+@keyframes toggle {
+  0% {
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+  }
+
+  100% {
+    background-color: darkblue;
+  }
+}
+
+@keyframes talk {
+  0% {
+    height: 5%;
+  }
+
+  100% {
+    height: 10%;
+  }
+}
